@@ -1,0 +1,53 @@
+
+.row__poster {
+    width: 200px; /* Adjust the width as per your needs */
+    max-height: 300px; /* Adjust the height as per your needs */
+    margin-right: 10px;
+    position: relative; /* Add position relative */
+    transition-duration: 450ms;
+}
+
+.row__poster:hover{
+    transform: scale(1.12);
+    transition-duration: 450ms;
+    z-index: 1;
+}
+
+.poster__image{
+    width: 200px; /* Adjust the width as per your needs */
+    /* height: 300px; */
+    height: 200px;
+    max-height: 300px; /* Adjust the height as per your needs */
+    margin-right: 10px;
+    /* border-radius: 10px; */
+}
+
+.row__poster:hover .poster__details{
+    display: block;
+}
+
+.poster__details {
+    max-height: 250px;
+    width: 200px;
+    padding: 6px;
+    position: absolute;
+    box-sizing: border-box;
+    color: white;
+    bottom: 0px;
+    background: rgb(27, 27, 27, .8);
+    display: none;
+
+}
+
+
+.poster__title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Add some spacing between elements */
+}
+
+
+.poster__labels {
+    font-size: 10px;
+}
+

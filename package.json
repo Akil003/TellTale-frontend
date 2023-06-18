@@ -3,19 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-oauth/google": "^0.11.0",
+    "@supabase/auth-ui-react": "^0.4.2",
+    "@supabase/auth-ui-shared": "^0.1.6",
+    "@supabase/supabase-js": "^2.25.0",
+    "@tanstack/react-query": "^4.29.12",
+    "@tanstack/react-query-devtools": "^4.29.12",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "amplitudejs": "^5.3.2",
     "axios": "^0.21.1",
+    "babel-loader": "^9.1.2",
+    "html-react-parser": "^4.0.0",
+    "jwt-decode": "^3.1.2",
     "movie-trailer": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-lazy-load-image-component": "^1.6.0",
+    "react-paginate": "^8.2.0",
+    "react-router-dom": "^6.11.2",
     "react-scripts": "4.0.3",
+    "react-slider": "^2.0.5",
     "react-youtube": "^7.13.1",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -33,9 +51,12 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ]
+  },
+  "devDependencies": {
+    "sharp": "^0.32.1"
   }
 }

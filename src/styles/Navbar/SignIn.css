@@ -1,0 +1,82 @@
+/* Google Sign in */
+
+.signin__wrapper{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-items: center;
+    right: 10px;
+  height: 32.5px;
+
+}
+
+button {
+    cursor: pointer;
+    border: 1;
+    border-radius: 4px;
+    font-weight: 550;
+    margin: 0 5px;
+    width: 80px;
+    padding: 5px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    transition: 0.8s; 
+  }
+  
+  .signin__button {
+    color: var(--green);
+    background-color: transparent;
+    border: 1.4px solid var(--green);
+  }
+
+  .signout__button{
+    margin-top: 5px;
+    padding: 10px;
+    /* display: block; */
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    right: 10px;
+    top: 70px;
+    color: var(--red);
+    background-color: inherit;
+    border: 1.4px solid var(--red);
+    transition: .2s ease-in-out;
+  }
+
+  .signin__button:hover{
+    background-color: var(--green);
+
+    color:     var(--white-shady);
+  }
+
+  .signout__button:hover{
+    background-color: var(--red);
+    color: var(--white-shady);
+  }
+
+  
+  button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+  }
+
+  button.signin__profile{
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    border: none;
+
+  }
+
+  .signout__visible{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .signout__wrapper{
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    min-height: 70px;
+    min-width: 40px;
+  }

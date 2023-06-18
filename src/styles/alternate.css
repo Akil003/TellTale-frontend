@@ -1,0 +1,8 @@
+.alternate__container{
+    color: var(--white-shady);
+    width: 200%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

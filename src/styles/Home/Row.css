@@ -1,0 +1,42 @@
+.rows{
+    padding-top:30px;
+    padding-bottom: 10px;
+    background-color: var(--black-pitch);
+    /* min-height = viewport height - banner height - rows vertical padding */
+    min-height: calc(100vh - 448px - 30px);
+}
+
+/* Positioning rows to right */
+/* Setting min-height is necessary to lazy load the row otherwise, it would be 0 and all of the remaining rows would be loaded at once */
+
+.row {
+    /* margin-left: 20px; */
+    /* min-height: 250px; */
+}
+
+.row__title{
+    margin-left: 20px;
+    color: var(--white);
+    margin-bottom: 10px;
+
+}
+
+/* Positioning in flex */
+.row__posters {
+    display: flex;
+    /* Makes title stay while scrolling */
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+/* Removes scrollbar, but keeps functionality */
+.row__posters::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+  

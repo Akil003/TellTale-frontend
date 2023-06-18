@@ -1,0 +1,29 @@
+.search__page{
+    margin-top: 0;
+    color: white;
+    margin-left: 10px;
+    min-height: 100vh;
+}
+
+.transition{
+    height: 90px;
+}
+
+.search__header{
+    margin: 20px;
+    margin-left:20px;
+}
+
+.search__results{
+    padding-top: 20px;
+    display: flex;
+    background: #111;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+
+h2{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,22 @@
+:root{
+  --white-shady: rgb(255, 255, 255, .95);
+  --white: rgb(255, 255, 255);
+  --black-pitch: rgb(17, 17, 17);
+  --black-light: rgb(17, 17, 17, .8);
+  --black-transparent: rgb(17, 17, 17, .2);
+  --black-less-transparent: rgb(17, 17, 17, .7);
+  --shadow: rgb(0, 0, 0, .1);
+  --green: rgb(0, 204, 102);
+  --blue: rgb(0, 123, 255);
+  --red: rgb(245, 66, 66)
+}
+
+
+/* Applies to the html document */
+* {
+  margin:0;
+}
+/* Styling app component */
+.app {
+  background-color: var(--black-pitch);
+}

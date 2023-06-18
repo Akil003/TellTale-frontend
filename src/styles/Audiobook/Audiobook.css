@@ -1,0 +1,69 @@
+.audiobook__page{
+    min-height: 100vh;
+    margin-left:10px;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+.audiobook{
+    background-color: transparent;
+    color: var(--white-shady);
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+.audiobook__wrapper{
+    margin-left: 10px;
+    display: flex;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    gap: 40px;
+}
+
+
+
+
+
+.left__wrapper{
+    width: 40%;
+    /* padding: 10px; */
+    /* /* margin-right: 20px; */
+    margin-bottom: 20px; 
+}
+
+@media (max-width: 760px) {
+    .left__wrapper {
+        width: 80%;
+    }
+}
+
+.audiobook__header{
+    font-size: 32px;
+    margin: 10px;
+    margin-bottom:20px;
+    /* color: white; */
+}
+
+.audiobook__description{
+    padding: 10px;
+    /* margin-top: 10px; */
+    min-width: 200px;
+}
+
+.description__header{
+    padding: 10px;
+    margin-bottom: 5px; 
+}
+
+
+.audiobook__image {
+    width: 250px;
+    height: 250px; /* Adjust the width as per your needs */
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
