@@ -6,46 +6,26 @@ import { useQuery } from '@tanstack/react-query'
 import Alternate from "../Poster/Alternate";
 
 const MAX_QUOTE_LENGTH = 250
+const BACKEND_URL = `https://telltale-backend-0tqm.onrender.com/`
 
 function Banner() {
-    function getRandom(arr) {
-        return arr[Math.floor(Math.random() * arr.length)]
-    }
-
-    const bannerQuery = useQuery({
-        queryKey: ["banner"],
-        queryFn: fetchBanner,
-        // refetch interval to be 10 minutes
-    })
-
     const quoteQuery = useQuery({
         queryKey: ["quote"],
         queryFn: fetchQuote
 
     })
 
-    if (bannerQuery.isError || quoteQuery.isError) {
+    if (quoteQuery.isError) {
         return <Alternate parentClass={'banner'} message={'Error...'} />
     }
-    if (bannerQuery.isLoading || quoteQuery.isLoading) {
+    if (quoteQuery.isLoading) {
         return <Alternate parentClass={'banner'} message={'Loading...'} />
     }
 
-
     async function fetchQuote() {
         const request = await axios.get(`/query/quote`)
+        console.log(request.data)
         return request.data
-    }
-
-    async function fetchBanner() {
-        // this returns the image file names
-        let images = await axios.get('/banner', {
-            // baseURL: `http://localhost:3000`
-            baseURL: `https://telltale-frontend.onrender.com/`
-        })
-        images = [...images.data]
-        const path = getRandom(images)
-        return path
     }
 
     function truncate(str, n) {
@@ -57,7 +37,7 @@ function Banner() {
             className="banner"
             style={{
                 backgroundSize: "cover",
-                backgroundImage: `url("/banner/${bannerQuery.data}")`,
+                backgroundImage: `url(${BACKEND_URL}query/banner)`,
                 backgroundPosition: "center center",
                 backgroundBlendMode: "difference"
             }}
@@ -72,7 +52,7 @@ function Banner() {
                     {truncate(quoteQuery.data.quote, MAX_QUOTE_LENGTH)}
                 </h1>
                 <h1 className="banner__title">
-                    - {bannerQuery.data.author}
+                    - {quoteQuery.data.author}
                 </h1>
             </div>
             {/* Empty fade div with bottom fade effect  */}
