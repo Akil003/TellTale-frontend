@@ -34,6 +34,11 @@ export default function Poster({ ebook }) {
             }).then((progress) => {
                 navigate('/audiobook', { state: { ebook, progress: progress.data } });
             })
+                .catch((e) => {
+                    console.log('no progress records')
+                    navigate('/audiobook', { state: { ebook, progress: progress.data } });
+
+                })
         }
         else
             navigate('/audiobook', { state: { ebook, progress: progress.data } });
@@ -41,11 +46,11 @@ export default function Poster({ ebook }) {
     }
 
     if (isLoading) {
-        return <Alternate parentClass='row__poster'  />
+        return <Alternate parentClass='row__poster' />
     }
 
     if (isError) {
-        return <Alternate parentClass='row__poster'  />
+        return <Alternate parentClass='row__poster' />
     }
 
     return (
