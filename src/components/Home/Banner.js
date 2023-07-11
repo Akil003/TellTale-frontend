@@ -40,7 +40,8 @@ function Banner() {
     async function fetchBanner() {
         // this returns the image file names
         let images = await axios.get('/banner', {
-            baseURL: `http://localhost:3000`
+            // baseURL: `http://localhost:3000`
+            baseURL: `https://telltale-frontend.onrender.com/`
         })
         images = [...images.data]
         const path = getRandom(images)
