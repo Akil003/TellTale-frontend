@@ -31,8 +31,6 @@ export default function SignIn() {
             if (data.session)
                 user = data.session.user.user_metadata
             setUser(user)
-
-            
         }
 
         getSession()

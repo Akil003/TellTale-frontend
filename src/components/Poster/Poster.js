@@ -41,11 +41,11 @@ export default function Poster({ ebook }) {
     }
 
     if (isLoading) {
-        return <Alternate parentClass='row__poster' message={'Loading...'} />
+        return <Alternate parentClass='row__poster'  />
     }
 
     if (isError) {
-        return <Alternate parentClass='row__poster' message={'Error...'} />
+        return <Alternate parentClass='row__poster'  />
     }
 
     return (
