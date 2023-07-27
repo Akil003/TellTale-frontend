@@ -26,21 +26,21 @@ export default function Poster({ ebook }) {
         const session = await supabase.auth.getSession()
         console.log('session', session.data)
         const progress = {}
-        if (session.data.session !== null) {
-            await axiosInteraction.post('/progress/start', { ebookID: ebook._id }, {
-                headers: {
-                    'x-access-token': session.data.session.access_token
-                }
-            }).then((progress) => {
-                navigate('/audiobook', { state: { ebook, progress: progress.data } });
-            })
-                .catch((e) => {
-                    console.log('no progress records')
-                    navigate('/audiobook', { state: { ebook, progress: progress.data } });
+        // if (session.data.session !== null) {
+        //     await axiosInteraction.post('/progress/start', { ebookID: ebook._id }, {
+        //         headers: {
+        //             'x-access-token': session.data.session.access_token
+        //         }
+        //     }).then((progress) => {
+        //         navigate('/audiobook', { state: { ebook, progress: progress.data } });
+        //     })
+        //         .catch((e) => {
+        //             console.log('no progress records')
+        //             navigate('/audiobook', { state: { ebook, progress: progress.data } });
 
-                })
-        }
-        else
+        //         })
+        // }
+        // else
             navigate('/audiobook', { state: { ebook, progress: progress.data } });
 
     }
