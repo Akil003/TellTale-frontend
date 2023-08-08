@@ -5,6 +5,7 @@ import Nav from "./components/Navbar/Nav";
 import { Routes, Route } from "react-router-dom"
 import Search from "./components/SearchPage/Search";
 import Audiobook from "./components/Audiobook/Audiobook";
+import Recommendation from "./components/Recommendation/Recommendation"
 
 
 
@@ -16,6 +17,7 @@ function Main() {
         <Route path="/" element={<Home />} />
         <Route path="audiobook" element={<Audiobook />} />
         <Route path="search" element={<Search />} />
+        <Route path="recommendations" elements={<Recommendation />} />
       </Routes>
     </div>
   )

@@ -1,5 +1,4 @@
 import '../../styles/Home/Row.css'
-import React, { useEffect, useState } from 'react'
 import axios from '../../utils/axios'
 import Row from './Row'
 import { useQuery } from '@tanstack/react-query'

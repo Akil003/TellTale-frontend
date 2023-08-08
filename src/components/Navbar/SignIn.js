@@ -5,6 +5,7 @@ import '../../styles/Navbar/SignIn.css'
 import { useNavigate } from 'react-router-dom'
 import SignInGoogle from '../Auth/SignInGoogle'
 import supabase from "../../utils/supabase"
+import Cookies from 'js-cookie'
 
 
 export default function SignIn() {
@@ -21,6 +22,8 @@ export default function SignIn() {
         await supabase.auth.signOut()
         setUser({})
         console.log('done...')
+        Cookies.set('user', '')
+
     }
 
     useEffect(() => {
@@ -31,6 +34,7 @@ export default function SignIn() {
             if (data.session)
                 user = data.session.user.user_metadata
             setUser(user)
+            Cookies.set('user', Object.keys(user).length === 0 ? '': user.email)
         }
 
         getSession()

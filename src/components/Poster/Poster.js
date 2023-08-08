@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Alternate from './Alternate';
 import '../../styles/Home/Poster.css'
-import axiosInteraction from '../../utils/axiosInteraction'
 import supabase from '../../utils/supabase';
+import axios from '../../utils/axios';
+import Cookies from 'js-cookie';
 
 export default function Poster({ ebook }) {
     const navigate = useNavigate();
@@ -41,7 +42,8 @@ export default function Poster({ ebook }) {
         //         })
         // }
         // else
-            navigate('/audiobook', { state: { ebook, progress: progress.data } });
+        
+        navigate('/audiobook', { state: { ebook, progress: progress.data } });
 
     }
 

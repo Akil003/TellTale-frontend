@@ -2,21 +2,36 @@ import { useQuery } from '@tanstack/react-query'
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Alternate from './Alternate'
+import Cookies from 'js-cookie'
+import axios from './../../utils/axios'
 
 export default function BigPoster() {
     const location = useLocation()
 
-    const {data : {ebook}, isError, isLoading} = useQuery({
+    const { data: { ebook }, isError, isLoading } = useQuery({
         queryKey: ["ebook", location.state],
         queryFn: () => {
             return location.state
         }
     })
 
-    if (isError){
+    useEffect(() => {
+        async function record() {
+            if (Cookies.get('email') != '') {
+                await axios.put(`/watched`, {
+                    email: Cookies.get('email'),
+                    ebook: {id: ebook._id, title: ebook.title}
+                })
+            }
+        }
+
+        record()
+    }, [ebook])
+
+    if (isError) {
         return <Alternate parentClass={'left_wrapper'} />
     }
-    if (isLoading){
+    if (isLoading) {
         return <Alternate parentClass={'left__wrapper'} />
     }
 
@@ -28,7 +43,7 @@ export default function BigPoster() {
                 alt={ebook.title}
             />
             <div className="audiobook__details">
-                
+
                 <table className="audiobook__labels">
                     <tbody>
 

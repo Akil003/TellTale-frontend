@@ -10,7 +10,6 @@ function Nav() {
     const [show, handleShow] = useState(false);
     const [keywords, setKeywords] = useState("")
 
-
     const navigate = useNavigate()
 
     // When scroll is a 100px (down in page) we add the navbar visibilty
@@ -29,8 +28,6 @@ function Nav() {
             window.removeEventListener("scroll", eventListenerFunc);
         };
     }, []);
-
-    
 
     // handle responsive menu
     const [menuOpen, setMenuOpen] = useState(false);
@@ -53,8 +50,6 @@ function Nav() {
         setTimer(leave)
     }
 
-
-
     function handleInput(event) {
         setKeywords(event.target.value)
     }
@@ -71,7 +66,7 @@ function Nav() {
 
     function handleClickCollections() {
         console.log('clicked')
-        navigate(`/`, { state: keywords })
+        navigate(`/recommendations`, { state: keywords })
 
     }
 
