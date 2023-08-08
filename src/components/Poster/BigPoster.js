@@ -18,7 +18,7 @@ export default function BigPoster() {
     useEffect(() => {
         async function record() {
             if (Cookies.get('email') != '') {
-                await axios.put(`/watched`, {
+                await axios.post(`/watched`, {
                     email: Cookies.get('email'),
                     ebook: {id: ebook._id, title: ebook.title}
                 })
