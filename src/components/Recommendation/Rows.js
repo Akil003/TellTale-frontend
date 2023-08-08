@@ -6,12 +6,11 @@ import { useQuery } from '@tanstack/react-query'
 import Alternate from '../Poster/Alternate'
 import Cookies from 'js-cookie'
 
-const NUM_OF_ROWS = 200
-
+const NUM_OF_ROWS = 20
 
 export default function Rows() {
     const { data: recommendations, isError, isLoading } = useQuery({
-        queryKey: ["titles"],
+        queryKey: [Cookies.get('email')],
         queryFn: fetchRecommendations
     })
 
@@ -19,6 +18,7 @@ export default function Rows() {
         return <Alternate parentClass="rows" message={"Error..."} />
     }
     if (isLoading) {
+        console.log('recommendations loading...')
         return <Alternate parentClass="rows" message={"Loading..."} />
     }
 
@@ -37,33 +37,43 @@ export default function Rows() {
             return []
         }
 
+
         const response = await axios.get(`/query/prevWatched/?email=${email}`)
         const watched = response.data
-        const watched_books = watched.map(book => ({id : book.id, title: book.title}))
+        let watched_books = watched.map(book => ({id : book.id, title: book.title}))
+
         shuffle(watched_books)
+
+        if (watched_books.length > NUM_OF_ROWS){
+            watched_books = watched_books.slice(0, NUM_OF_ROWS)
+        }
 
         async function getRecommendations(id){
             const response = await recommendation(`/?id=${id}`)
             return response.data
         }
+        console.log('watched books', watched_books)
 
-        const recommendations = watched_books.map(
-            book => {
-                return {title : book.title, recommendations: getRecommendations(book.id)}
+        const recommendations = await Promise.all(watched_books.map(
+            async (book) => {
+                return {title : book.title, recommendations: await getRecommendations(book.id)}
             }
-        )
-
+        ))
+        console.log("recommendations", recommendations)
         return recommendations
     }
 
-
+    console.log('recommendations loaded', recommendations.length)
     return (
         <div className='rows'>
             {
-                recommendations.length == 0 && <Alternate parentClass="rows" message={"Please Sign in to get recommendations..."} />
+                Cookies.get('email') === '' && <Alternate parentClass="recommendations" message={"Please sign in to get recommendations..."}/>
+            }
+            {
+                Cookies.get('email') !== '' && recommendations.length === 0 && <Alternate parentClass="recommendations" message={"Please listen to some audiobooks to get recommendations..."} />
             }
             {recommendations.map((book, index) => {
-                return <Row key={index} title={`Because you watched ${book.title}`} url={`/query/ids/?ids=${book.recommendations}`} />
+                return <Row key={index} title={`Because you listened to ${book.title}`} url={`/query/ids/?ids=[${book.recommendations}]`} />
             }
             )
             }

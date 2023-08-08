@@ -17,7 +17,7 @@ function Main() {
         <Route path="/" element={<Home />} />
         <Route path="audiobook" element={<Audiobook />} />
         <Route path="search" element={<Search />} />
-        <Route path="recommendations" elements={<Recommendation />} />
+        <Route path="recommendations" element={<Recommendation />} />
       </Routes>
     </div>
   )

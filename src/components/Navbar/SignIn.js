@@ -34,7 +34,8 @@ export default function SignIn() {
             if (data.session)
                 user = data.session.user.user_metadata
             setUser(user)
-            Cookies.set('user', Object.keys(user).length === 0 ? '': user.email)
+            Cookies.set('email', Object.keys(user).length === 0 ? '': user.email)
+            
         }
 
         getSession()
