@@ -4,8 +4,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Alternate from './Alternate';
 import '../../styles/Home/Poster.css'
 import supabase from '../../utils/supabase';
-import axios from '../../utils/axios';
-import Cookies from 'js-cookie';
 
 export default function Poster({ ebook }) {
     const navigate = useNavigate();
