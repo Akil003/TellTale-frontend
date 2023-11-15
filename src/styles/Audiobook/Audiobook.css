@@ -1,11 +1,11 @@
-.audiobook__page{
+.audiobook__page {
     min-height: 100vh;
-    margin-left:10px;
+    margin-left: 10px;
     margin-right: 10px;
     padding-bottom: 10px;
 }
 
-.audiobook{
+.audiobook {
     background-color: transparent;
     color: var(--white-shady);
     padding: 10px;
@@ -13,57 +13,259 @@
     margin-right: 20px;
 }
 
-
-
-.audiobook__wrapper{
+.audiobook__wrapper {
     margin-left: 10px;
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    align-items:flex-start;
+    align-items: flex-start;
     gap: 40px;
-}
+    margin-bottom: 10px;
 
-
-
-
-
-.left__wrapper{
-    width: 40%;
-    /* padding: 10px; */
-    /* /* margin-right: 20px; */
-    margin-bottom: 20px; 
-}
-
-@media (max-width: 760px) {
     .left__wrapper {
-        width: 80%;
+        width: 40%;
+        /* padding: 10px; */
+        /* /* margin-right: 20px; */
+        margin-bottom: 20px;
+    }
+
+    @media (width < 820px) {
+        .left__wrapper {
+            width: 80%;
+        }
+    }
+
+    .audiobook__image {
+        width: 300px;
+        height: 300px;
+        /* Adjust the width as per your needs */
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    .right__wrapper {
+        display: flex;
+        flex-direction: column;
+
+
+        .section__title{
+            max-width: 500px;
+        }
+
+        .big__play__wrapper {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.125rem;
+            box-sizing: border-box;
+            max-width: 250px;
+            box-shadow: 0px 0px 10px 0px var(--shadow);
+
+            .big__play__button {
+                width: 100%;
+                align-content: center;
+                padding: 10px 25px;
+                font-family: "Roboto", sans-serif;
+                font-weight: 500;
+                background: transparent;
+                outline: none !important;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                display: inline-block;
+                border: 2px solid var(--green);
+                z-index: 1;
+                color: var(--green);
+            }
+
+            .big__play__button:after {
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 100%;
+                top: 0;
+                left: 0;
+                direction: rtl;
+                z-index: -1;
+                background: var(--green);
+                transition: all 0.3s ease;
+            }
+
+            .big__play__button:hover {
+                font-weight: bolder;
+                color: var(--white-shady);
+            }
+
+            .big__play__button:hover:after {
+                left: auto;
+                right: 0;
+                width: 100%;
+            }
+
+            .big__play__button:active {
+                top: 2px;
+            }
+
+            .big__play__button.playing:hover{
+                border-color: var(--red);
+                background-color: none;
+                font-weight: normal;
+                color: var(--white);
+            }
+            
+
+            .big__play__button.playing{
+                background-color: none;
+                border-color: var(--red);
+                color: var(--red);
+            }
+            .big__play__button.playing:after{
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 100%;
+                top: 0;
+                left: 0;
+                direction: rtl;
+                z-index: -1;
+                background: var(--red);
+                transition: all 0.3s ease;
+            }
+
+
+            .big__play__button.playing:hover:after {
+                left: auto;
+                right: 0;
+                width: 100%;
+            }
+
+            .big__play__button.playing:active {
+                top: 2px;
+            }
+        }
+
+        .audiobook__details {
+            font-size: 1.125rem;
+        }
     }
 }
 
-.audiobook__header{
+
+.audiobook__header {
     font-size: 32px;
     margin: 10px;
-    margin-bottom:20px;
+    margin-bottom: 30px;
     /* color: white; */
 }
 
-.audiobook__description{
+.audiobook__description {
     padding: 10px;
     /* margin-top: 10px; */
     min-width: 200px;
 }
 
-.description__header{
+/*------------------------------Sections-----------------------------*/
+
+.section__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .audiobook__section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 200px;
+        padding: 10px; /* Increase padding for a more pronounced effect */
+        font-weight: 550;
+        color: var(--white);
+        background-color: var(--black-light);
+        border: 1px solid var(--white-shady);
+        border-radius: 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+      
+        &::before {
+          content: '';
+          position: absolute;
+          top: 5px; /* Adjust the top offset for the upper outline */
+          left: 5px; /* Adjust the left offset for the left outline */
+          right: -5px; /* Adjust the right offset for the right outline */
+          bottom: -5px; /* Adjust the bottom offset for the lower outline */
+          border: 1px solid var(--green); /* Adjust the thickness and color of the outline */
+          border-top: none;
+          border-left:none;
+          border-radius: 20px; /* Match the button's border-radius */
+        }
+      
+        .audiobook__section__title {
+          font-size: 1rem;
+          margin-bottom: 10px;
+          
+        }
+      }
+      .audiobook__section.selected{
+        color:var(--black-pitch);
+        background-color: var(--white);
+      }
+      
+
+    /* <!-- HTML !-->
+<button class="button-89" role="button">Button 89</button> */
+
+
+
+    .audiobook__section:hover {
+        border: 1px solid var(--white);
+
+        color: var(--black-light);
+        transform: scale(1.02);
+        background: var(--white);
+    }
+}
+
+.description__header {
     padding: 10px;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 
 
-.audiobook__image {
-    width: 250px;
-    height: 250px; /* Adjust the width as per your needs */
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+
+/*---------------Button---------------*/
+/* CSS */
+.button-89 {
+    --b: 3px;
+    /* border thickness */
+    --s: .45em;
+    /* size of the corner */
+    --color: var(--white-shady);
+    width: 200px;
+
+    padding: calc(.6em + var(--s)) calc(.2em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+        conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible {
+    transform: scale(1.02);
+}
+
+.button-89:active {
+    background: var(--color);
+    color: #fff;
 }

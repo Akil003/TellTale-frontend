@@ -1,19 +1,3 @@
-.right__wrapper {
-    padding: 20px;
-    width: 320px;
-    min-width : 250px;
-    min-height: 250px;
-    border: 1px solid white;
-    border-radius: 5%;
-    margin-bottom: 20px;
-}
-
-/* @media (max-width:450){
-    .right__wrapper{
-        width: 80%;
-    }
-} */
-
 .section__header {
     font-size: 32px;
     /* height: 100px; */
@@ -21,13 +5,13 @@
     margin-bottom: 20px;
 }
 
-.selected__page{
+.selected__page {
     border: 1px solid var(--white);
     border-radius: 25%;
     color: var(--white);
 }
 
-.audio__player{
+.audio__player {
     width: 100%;
 }
 
@@ -50,9 +34,10 @@
     max-width: 300px;
     padding: 5px;
     margin-bottom: 40px;
+
 }
 
-audio{
+audio {
     width: 80%;
 }
 
@@ -99,4 +84,165 @@ audio{
     /* border: 1px solid var(--white);
     border-radius: 25%; */
     transform: scale(1.2);
+}
+
+/*******************************/
+
+/* AudioPlayer.css */
+
+/* AudioPlayer.css */
+
+.audio-player-container {
+    background-color: var(--black-light);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    box-shadow: 0 -2px 4px var(--shadow);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .progress-bar-container {
+        background-color: var(--white);
+        height: 4px;
+        position: fixed;
+        width: 100%;
+        .progress-filled {
+            position: relative;
+            background-color: var(--red);
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .audio-controls-wrapper{
+        width: 95%;
+        display: flex;
+        color: var(--white);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .audio-controls {
+        padding: 6px 16px;
+        border: none;
+        /* width: 50%; */
+        cursor: pointer;
+        margin: .4%;
+        display:flex;
+
+        .span-icon{
+            margin: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .control-button{
+            border: 1.5px solid var(--shadow);
+            border-radius: 50%;
+            transition-duration: .5s;
+        }
+        .control-button:hover{
+            transform: scale(1.2);
+            /* border: 1.5px solid var(--white); */
+        }
+       
+
+        .current-time {
+            margin-left: 10%;
+        }
+
+        .total-time {
+            margin-right: 10%;
+        }
+    }
+
+
+}
+
+
+/* PlayPauseButton.css */
+.play-pause-wrapper {
+    display: flex;
+    align-items: center;
+
+
+    .hidden-checkbox {
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .button-label {
+        display: grid;
+        border: 2px solid var(--white);
+        background-color: var(--black-pitch);
+        --w: 50px;
+        width: var(--w);
+        height: var(--w);
+        border-radius: 50%;
+        place-items: center;
+        cursor: pointer;
+        transition-duration: .5s;
+    }
+
+    .button-label:hover {
+        background-color: var(--white);
+    }
+
+
+    .playPauseIcon {
+        --w: 50%;
+        width: var(--w);
+        height: var(--w);
+        background: white;
+        transform: translate(0, 0);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .button-label:hover> .playPauseIcon{
+        background-color: var(--black-pitch);
+    }
+
+    .play {
+        clip-path: polygon(20% 0,
+                20% 100%,
+                90% 50%,
+                90% 50%,
+                90% 50%,
+                90% 50%,
+                90% 50%,
+                90% 50%,
+                90% 50%);
+        transform: translate(6%, 0);
+    }
+
+    .pause {
+        clip-path: polygon(0 0,
+                0 100%,
+                33.33% 100%,
+                33.33% 0,
+                66.66% 0,
+                100% 0,
+                100% 100%,
+                66.66% 100%,
+                66.66% 0);
+        transform: translate(0, 0);
+    }
+
+    .play-2 {
+        clip-path: polygon(20% 0,
+                20% 100%,
+                35% 90%,
+                35% 90%,
+                35% 90%,
+                90% 50%,
+                35% 10%,
+                35% 10%,
+                35% 10%);
+        transform: translate(6%, 0);
+    }
 }
