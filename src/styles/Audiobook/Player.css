@@ -126,12 +126,11 @@ audio {
     }
 
     .audio-controls {
+        display: inline-flex;
         padding: 6px 16px;
         border: none;
-        /* width: 50%; */
         cursor: pointer;
         margin: .4%;
-        display:flex;
 
         .span-icon{
             margin: 2%;
